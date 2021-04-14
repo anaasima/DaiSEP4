@@ -10,19 +10,19 @@ namespace DaiSEP4.Repositories
     {
         private Sep4DBContext _context;
         
-        public async Task CreateGarden(Garden garden)
+        public async Task CreateGarden(DimGarden dimGarden)
         {
             await using (_context = new Sep4DBContext())
             {
-                await _context.Gardens.AddAsync(garden);
+                await _context.DimGarden.AddAsync(dimGarden);
                 await _context.SaveChangesAsync();
             }
         }
 
-        public async Task<Garden> GetGardenById(int id)
+        public async Task<DimGarden> GetGardenById(int id)
         {
-            Garden garden = await _context.Gardens.FirstAsync(gdn => gdn.Id == id);
-            return garden;
+            DimGarden dimGarden = await _context.DimGarden.FirstAsync(gdn => gdn.Id == id);
+            return dimGarden;
         }
         
     }

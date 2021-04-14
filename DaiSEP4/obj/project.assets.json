@@ -5686,26 +5686,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eatcl\\.nuget\\packages\\": {}
+    "C:\\Users\\jambo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eatcl\\RiderProjects\\DaiSEP4\\DaiSEP4\\DaiSEP4.csproj",
+      "projectUniqueName": "C:\\Users\\jambo\\RiderProjects\\DaiSEP4\\DaiSEP4\\DaiSEP4.csproj",
       "projectName": "DaiSEP4",
-      "projectPath": "C:\\Users\\eatcl\\RiderProjects\\DaiSEP4\\DaiSEP4\\DaiSEP4.csproj",
-      "packagesPath": "C:\\Users\\eatcl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eatcl\\RiderProjects\\DaiSEP4\\DaiSEP4\\obj\\",
+      "projectPath": "C:\\Users\\jambo\\RiderProjects\\DaiSEP4\\DaiSEP4\\DaiSEP4.csproj",
+      "packagesPath": "C:\\Users\\jambo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jambo\\RiderProjects\\DaiSEP4\\DaiSEP4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eatcl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\jambo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5755,7 +5753,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

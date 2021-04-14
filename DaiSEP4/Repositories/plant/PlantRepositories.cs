@@ -14,7 +14,7 @@ namespace DaiSEP4.Repositories
         {
             await using (_context = new Sep4DBContext())
             {
-                await _context.Plant.AddAsync(plant);
+                await _context.Plants.AddAsync(plant);
                 await _context.SaveChangesAsync();
             }
 
@@ -23,13 +23,13 @@ namespace DaiSEP4.Repositories
 
         public async Task<Plant> GetPlant(int id)
         {
-            Plant plant = await _context.Plant.FirstAsync(p => p.ID.Equals(id));
+            Plant plant = await _context.Plants.FirstAsync(p => p.ID.Equals(id));
             return plant;
         }
 
         public async Task<IList<Plant>> GetAllPlants()
         {
-           IList<Plant> plants = await _context.Plant.ToListAsync();
+           IList<Plant> plants = await _context.Plants.ToListAsync();
            return plants;
         }
     }
