@@ -15,8 +15,8 @@ namespace DatabaseSEP4.Models
         public double Light { get; set; }
         [JsonPropertyName("humidity")]
         public double Humidity { get; set; }
-        public ICollection<Garden> Gardens { get; set; }
-        public ICollection<Gardener> Gardeners { get; set; }
-        public ICollection<Plant> Plants { get; set; }
+        public Garden Garden { get; set; }
+        public Gardener Gardener { get; set; }
+        public Plant Plant { get; set; }
     }
 }

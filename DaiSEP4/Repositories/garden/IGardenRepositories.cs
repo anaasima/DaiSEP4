@@ -7,6 +7,6 @@ namespace DaiSEP4.Repositories
     public interface IGardenRepositories
     {
         Task CreateGarden(Garden garden);
-        Task<IList<Garden>> GetGarden();
+        Task<Garden> GetGardenById(int id);
     }
 }

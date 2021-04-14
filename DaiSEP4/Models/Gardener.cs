@@ -7,7 +7,7 @@ namespace DatabaseSEP4.Models
     {
         [Key]
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public int id { get; set; }
         [JsonPropertyName("username")]
         public string Username { get; set; }
         [JsonPropertyName("age")]

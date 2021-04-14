@@ -13,5 +13,10 @@ namespace DaiSEP4.DataAccess
         {
             base.OnConfiguring(optionsBuilder);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<FactPlantStatus>().HasKey(f => new {f.Garden.Id, f.Gardener.id, f.Plant.ID});
+        }
     }
 }
