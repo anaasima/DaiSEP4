@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DaiSEP4.DataAccess
 {
-    public class Sep4DBContext : DbContext
+    public class SEP4DBContext : DbContext
     {
         public DbSet<DimGarden> DimGarden { get; set; }
         public DbSet<Gardener> Gardeners { get; set; }

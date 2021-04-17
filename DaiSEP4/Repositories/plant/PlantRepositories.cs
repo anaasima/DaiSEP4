@@ -8,11 +8,11 @@ namespace DaiSEP4.Repositories
 {
     public class PlantRepositories : IPlantRepositories
     {
-        private Sep4DBContext _context;
+        private SEP4DBContext _context;
 
         public async Task<Plant> CreatePlant(Plant plant)
         {
-            await using (_context = new Sep4DBContext())
+            await using (_context = new SEP4DBContext())
             {
                 await _context.Plants.AddAsync(plant);
                 await _context.SaveChangesAsync();

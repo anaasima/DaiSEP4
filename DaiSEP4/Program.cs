@@ -15,19 +15,21 @@ namespace DaiSEP4
     {
         public static void Main(string[] args)
         {
-            using (Sep4DBContext context = new Sep4DBContext())
+            CreateHostBuilder(args).Build().Run();
+            using (SEP4DBContext context = new SEP4DBContext())
             {
-                context.DimGarden.Add(new DimGarden
-                {
-                    City = "Horsens",
-                    LandArea = 12.5,
-                    Name = "Me",
-                    Number = 23,
-                    Street = "Main"
-                });
-                context.SaveChangesAsync();
+                List<DimGarden> gardens = context.DimGarden.ToList();
+                Console.WriteLine("Gardens" + gardens);
+                // context.DimGarden.Add(new DimGarden
+                // {
+                //     City = "Horsens",
+                //     LandArea = 12.5,
+                //     Name = "Me",
+                //     Number = 23,
+                //     Street = "Main"
+                // });
+                // context.SaveChangesAsync();
             }
-           // CreateHostBuilder(args).Build().Run();
             
         }
 
