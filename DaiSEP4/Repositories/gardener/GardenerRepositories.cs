@@ -9,11 +9,18 @@ namespace DaiSEP4.Repositories
     public class GardenerRepositories : IGardenerRepositories
     {
         private SEP4DBContext _context;
+
         public async Task CreateGardener(Gardener gardener)
         {
             await using (_context = new SEP4DBContext())
             {
-                await _context.Gardeners.AddAsync(gardener);
+                await _context.Gardeners.AddAsync(new Gardener()
+                {
+                    Age = gardener.Age,
+                    IsOwner = gardener.IsOwner,
+                    Username = gardener.Username,
+                    Sex = gardener.Sex
+                });
                 await _context.SaveChangesAsync();
             }
         }

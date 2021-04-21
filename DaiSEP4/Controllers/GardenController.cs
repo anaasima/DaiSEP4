@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DaiSEP4.DataAccess;
+using DaiSEP4.Repositories;
 using DatabaseSEP4.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,12 @@ namespace DaiSEP4.Controllers
     [Route("[controller]")]
     public class GardenController : ControllerBase
     {
+        private IGardenRepositories _gardenRepositories;
+
+        public GardenController(IGardenRepositories gardenRepositories)
+        {
+            this._gardenRepositories = gardenRepositories;
+        }
         [HttpPost]
         public async Task<ActionResult> AddGarden([FromBody] DimGarden garden)
         {
@@ -21,19 +28,25 @@ namespace DaiSEP4.Controllers
                 return BadRequest(ModelState);
             try
             {
-                using (SEP4DBContext ctx = new SEP4DBContext())
-                {
-                    await ctx.DimGarden.AddAsync(new DimGarden
-                    {
-                        City = garden.City,
-                        LandArea = garden.LandArea,
-                        Name = garden.Name,
-                        Street = garden.Street,
-                        Number = garden.Number
-                    });
-                    await ctx.SaveChangesAsync();
-                    return Created($"/{garden.Garden_ID}", garden);
-                }
+                await _gardenRepositories.CreateGarden(garden);
+                return Created($"/{garden.Garden_ID}", garden);
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<ActionResult<DimGarden>> GetGardenById([FromRoute] int id)
+        {
+            try
+            {
+                DimGarden garden = await _gardenRepositories.GetGardenById(id);
+                return Ok(garden);
             }
             catch (Exception e)
             {
@@ -41,9 +54,8 @@ namespace DaiSEP4.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
-        
-        [HttpGet]
+
+        /*[HttpGet]
         public async Task<ActionResult<IList<DimGarden>>> GetAllGardens()
         {
             try
@@ -64,13 +76,12 @@ namespace DaiSEP4.Controllers
                     // context.SaveChangesAsync();
                     return Ok(gardens);
                 }
-                
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 return StatusCode(500, e.Message);
             }
-        }
+        }  */
     }
 }
